@@ -66,21 +66,18 @@ public class App {
         try (Scanner input = new Scanner(System.in)) 
         {
             //Inputing the amount of points to be created
-            System.out.println("Insert the amount of points to be created : " + ans1);
+            System.out.println(">>Insert the amount of points to be created : " + ans1);
             ans1 = input.nextLine();
             int numreturn = (int)(Double.parseDouble(ans1));
 
             System.out.println("");
-            System.out.println("Insert the X and Y value of each coordinate");
+            System.out.println(">>Insert the X and Y value of each coordinate");
             System.out.println("");
 
             //Create points 
             Point[] point = new Point[numreturn];
-
             for(int i = 0; i < numreturn; i++)
-            {
                 point[i] = new Point();
-            }
 
             //Saving each coordinate to a point
             for(int l = 0; l < numreturn; l++)
@@ -109,17 +106,13 @@ public class App {
 
             //Calculating the products of the first batch of multiplications
             for(int j = 0; j < (numreturn - 1); j++)
-            {
                 calc1[j] = (point[j].getX()) * (point[j + 1].getY());
-            }
 
             calc1[numreturn - 1] = (point[numreturn - 1].getX()) * (point[0].getY());
 
             //Calculating the products of the second batch of multiplications
             for(int k = 0; k < (numreturn - 1); k++)
-            {
                 calc2[k] = point[k].getY() * point[k + 1].getX();
-            }
 
             calc2[numreturn - 1] = (point[numreturn - 1].getY()) * (point[0].getX());
 
@@ -127,6 +120,7 @@ public class App {
             double sum1 = 0;
             for(int m = 0; m < numreturn; m++)
                 sum1 = calc1[m] + sum1;
+
             //Calculating the sum of the products in the second batch of multiplications
             double sum2 = 0;
             for(int n = 0; n < numreturn; n++)
