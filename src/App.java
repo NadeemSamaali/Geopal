@@ -75,7 +75,12 @@ public class App {
                 ans1 = input.nextLine();
                 int numreturn = (int)(Double.parseDouble(ans1));
 
-                System.out.println("");
+                //Minimum amount of points = 3
+                if(numreturn < 3)
+                {
+                    System.out.println("\n>>You can't create less than 3 points : points created set to 3\n");
+                    numreturn = 3;
+                }
                 System.out.println(">>Insert the X and Y value of each coordinate");
                 System.out.println("");
 
@@ -108,13 +113,12 @@ public class App {
                 //Check for duplicate coordinates
                 for(int i = 0; i < numreturn; i++)
                     for(int j = i + 1; j < numreturn; j++)
-                    {
                         if(point[i].getX() == point[j].getX() && point[i].getY() == point[j].getY())
                         {
                             System.out.println("Error : Duplicate coordinate(s)!");
                             break label;
                         }
-                    }
+                    
                 
                 //Create storage units for coord. multiplication
                 double calc1[] = new double[numreturn];
